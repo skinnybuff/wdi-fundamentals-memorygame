@@ -7,13 +7,31 @@ body {
     font-weight: 200;
     text-align: center;
     letter-spacing: 1px;
+    margin: 0px;
+}
+header{
+    background: #F15B31;
+    color: white;
+    padding: 30px 0px 0px 0px;
+}
+header h1{
+    margin: 0px;
+}
+nav{
+    background: #00A6B3;
+    padding: 10px;
+    margin: 20px 0px;
 }
 a{
     text-decoration: none;
     margin:  0 20px;
-    color: #f15b31; 
+    color: white;    
     font-size: 20px;
 }
+main{
+    width: 850px;
+    margin: 35px auto;
+}
 img{
-    margin: 10px;
+    margin: 40px 10px;
 }
