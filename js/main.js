@@ -20,16 +20,30 @@ var cards = [
     }
 ];
 var cardsInPlay = [];
+var scoreDisplay = document.querySelector('#score-display');
+var scoreValue =0;
+
+var matchDisplay = document.querySelector('#match-display');
+
+var cardElement;
+
+var resetBtn = document.querySelector('button');
+resetBtn.addEventListener('click', restBoard);
 
 var checkForMatch = function(){
     
     if(cardsInPlay.length <2){
-        console.log(cardsInPlay);        
+        // do nothing
     }else if(cardsInPlay.length = 2 && cardsInPlay[0] === cardsInPlay[1]){
-        alert("You found a match!");      
+        matchDisplay.innerHTML = "You found a match!"; 
+        scoreValue++;
+        scoreDisplay.textContent = scoreValue;
+        // cardElement.removeEventListener('click', flipCard);
     }else{
-        alert("Sorry try again");   
+        matchDisplay.innerHTML = "Sorry try again!";
+        // cardElement.removeEventListener('click', flipCard);   
     }
+
 }
 
 var flipCard= function(){
@@ -45,12 +59,26 @@ var flipCard= function(){
 
 var createBoard = function(){
     for(var i =0; i <cards.length; i++){
-        var cardElement = document.createElement('img');
+        
+        cardElement = document.createElement('img');
         cardElement.setAttribute('src', "img/back.png");
         cardElement.setAttribute('data-id', i);
         cardElement.addEventListener('click', flipCard);
         gameBoard.appendChild(cardElement);
     }
+}
+
+function restBoard(){
+    var reset = document.querySelectorAll('img');
+
+
+    matchDisplay.innerHTML="";
+
+    for(var i=0; i < reset.length; i++){
+        reset[i].remove();
+    }
+
+    createBoard();
 }
 
 
